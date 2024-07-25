@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+package user;
+
+import "proto/google/api/annotations.proto";
+import "proto/protoc-gen-openapiv2/options/annotations.proto";
+
+
+option go_package = "github.com/aditya3232/grpc-proto-1/protogen/user";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "rest api - user";
+    version: "1.0.0";
+  };
+  host: "localhost:8081";
+  schemes: HTTP;
+  produces: "application/json";
+};
+
+message UserRequest { 
+  string id = 1 [json_name = "id"];
+  string name = 2 [json_name = "name"];
+  string occupation = 3 [json_name = "occupation"];
+  string email = 4 [json_name = "email"];
+  string password_hash = 5 [json_name = "password_hash"];
+  string avatar_file_name = 6 [json_name = "avatar_file_name"];
+  string role = 7 [json_name = "role"];
+  string created_at = 8 [json_name = "created_at"];
+  string updated_at = 9 [json_name = "updated_at"];
+}
+
+message UserSearchRequest {
+  string name = 1 [json_name = "name"];
+  string email = 2 [json_name = "email"];
+  string role = 3 [json_name = "role"];
+  int64 page = 4 [json_name = "page"];
+  int64 size = 5 [json_name = "size"];
+}
+
+message UserData { 
+  string id = 1 [json_name = "id"];
+  string name = 2 [json_name = "name"];
+  string occupation = 3 [json_name = "occupation"];
+  string email = 4 [json_name = "email"];
+  string role = 5 [json_name = "role"];
+  string created_at = 6 [json_name = "created_at"];
+  string updated_at = 7 [json_name = "updated_at"];
+}
+
+message UserResponse {
+  UserData data = 1 [json_name = "data"];
+}
+
+message Paging {
+  int64 page = 1 [json_name = "page"];
+  int64 size = 2 [json_name = "size"];
+  int64 total_item = 3 [json_name = "total_item"];
+  int64 total_page = 4 [json_name = "total_page"];
+}
+
+message PaginatedUserResponse {
+  repeated UserData data = 1 [json_name = "data"];
+  Paging paging = 2 [json_name = "paging"];
+}
+
+message DeleteUserResponse {
+  string status = 1 [json_name = "status"];
+}
+
+service UserService {
+  
+  rpc GetUser(UserRequest) returns (UserResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/user/{id}"
+    };
+  }
+
+  rpc SearchUser(UserSearchRequest) returns (PaginatedUserResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/user/search"
+    };
+  }
+
+  rpc CreateUser(UserRequest) returns (UserResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/user"
+      body: "*"
+    };
+  }
+
+  rpc UpdateUser(UserRequest) returns (UserResponse) {
+    option (google.api.http) = {
+      put: "/api/v1/user/{id}"
+      body: "*"
+    };
+  }
+
+  rpc DeleteUser(UserRequest) returns (DeleteUserResponse) {
+    option (google.api.http) = {
+      delete: "/api/v1/user/{id}"
+    };
+  }
+}
