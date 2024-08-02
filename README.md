@@ -1,38 +1,61 @@
+## Persiapan instalasi protolint & ekstensions vscode
+
+- download protolint : ***https://github.com/yoheimuta/protolint/releases/tag/v0.50.4***
+- setelah download letakkan di folder D, jangan di C
+- lalu ekstrak, kemudian daftarkan di environment variables -> system variables ***D:\Development\protolint***
+- cek dengan buka cmd lalu ketik ***protolint***
+- pasang juga protolint di ekstension vscode
+- pasang vscode-proto3
+
+## Persiapan instalasi protobuf compiler
+
+- search google : download protocol buffers compiler
+- lalu klik link : ***https://github.com/protocolbuffers/protobuf/releases/tag/v27.2***
+- lalu ekstrak, kemudian daftarkan di environment variables -> system variables ***D:\Development\protoc\bin***
+- cek dengan buka cmd lalu ketik ***protoc***
+
+## Persiapan download protoc-gen-go
+
+- buka terminal dan jalankan
+- go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.34.2
+- go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.5.1
+
 ## Persiapan protoc-gen
 
-1. Buat folder proto/{nama data} misal proto/user
-2. Isi dengan file proto
-3. Tentukan nama package, option go_package, message req & resp, dan service nya
-4. Hapus file protogen jika dilakukan compile ulang
-5. Sebelum jalankan **protoc-gen-grpc-gateway**, buat folder ./protogen/gateway/go/
-6. Sebelum jalankan **protoc-openapiv2-gateway**, buat folder ./protogen/gateway/openapiv2
+- Buat folder proto/{nama data} misal proto/user
+- Isi dengan file proto
+- Tentukan nama package, option go_package, message req & resp, dan service nya
+- Hapus file protogen jika dilakukan compile ulang
+- Sebelum jalankan **protoc-gen-grpc-gateway**, buat folder ./protogen/gateway/go/
+- Sebelum jalankan **protoc-openapiv2-gateway**, buat folder ./protogen/gateway/openapiv2
 
 ## Persiapan protoc-gen-grpc-gateway:
 
-1. Download protoc-gen--grpc-gateway dari repo berikut: https://github.com/grpc-ecosystem/grpc-gateway/releases/tag/v2.20.0
-2. Rename ke protoc-gen-grpc-gateway.exe (windows)
-3. Tambahkan environment variables folder tempat protoc-gen-grpc-gateway.exe berada
-4. Cek dengan protoc-gen-grpc-gateway --version
-5. Buat folder proto/google/api
-6. Download google/api/annotations.proto copy filenya dan masukkan ke proto/google/api/annotations.proto
-7. Lakukan juga google/api/http.protocopy file dan masukkan ke proto/google/api/http.proto
-8. Buat konfigurasi eksternal grpc-gateway/config.yml
-9. Pakai protoc-gen-grpc-gateway untuk membuat rest proxy didalam folder protogen/gateway/go
-10. Jangan lupa buat direktori ini terlebih dahulu ***protogen/gateway/go***
-11. Hapus protogen/gateway/go jika dilakukan compile ulang
+- Download protoc-gen--grpc-gateway dari repo berikut: https://github.com/grpc-ecosystem/grpc-gateway/releases/tag/v2.20.0
+- Rename ke protoc-gen-grpc-gateway.exe (windows)
+- Tambahkan environment variables folder tempat protoc-gen-grpc-gateway.exe berada : ***D:\Development\protoc\bin***
+- Cek dengan perintah ***protoc-gen-grpc-gateway --version***
+- Cek dengan protoc-gen-grpc-gateway --version
+- Buat folder proto/google/api
+- Download google/api/annotations.proto copy filenya dan masukkan ke proto/google/api/annotations.proto
+- Lakukan juga google/api/http.protocopy file dan masukkan ke proto/google/api/http.proto
+- Buat konfigurasi eksternal grpc-gateway/config.yml
+- Pakai protoc-gen-grpc-gateway untuk membuat rest proxy didalam folder protogen/gateway/go
+- Jangan lupa buat direktori ini terlebih dahulu ***protogen/gateway/go***
+- Hapus protogen/gateway/go jika dilakukan compile ulang
 
 ## Persiapan protoc-gen-openapi-v2
 
-1. Download protoc-gen-openapiv2 dari repo berikut: https://github.com/grpc-ecosystem/grpc-gateway/releases/tag/v2.20.0
-2. Rename ke protoc-gen-openapiv2.exe (windows)
-3. Tambahkan environment variables folder tempat protoc-gen-openapiv2.exe berada
-4. Cek dengan protoc-gen-openapiv2 --version
-5. Buat konfigurasi eksternal grpc-gateway/config-openapi.yml
-6. Buat folder proto/protoc-gen-openapiv2/options
-7. Download protoc-gen-openapiv2/options/anntations.proto dan masukkan ke proto/protoc-gen-openapiv2/options/annotations.proto
-8. Download protoc-gen-openapiv2/options/openapiv2.proto dan masukkan ke proto/protoc-gen-openapiv2/options/openapiv2.proto
-6. buat folder ini ***protogen/gateway/openapiv2***
-8. Hapus protogen/gateway/openapiv2 jika dilakukan compile ulang
+- Download protoc-gen-openapiv2 dari repo berikut: https://github.com/grpc-ecosystem/grpc-gateway/releases/tag/v2.20.0
+- Rename ke protoc-gen-openapiv2.exe (windows)
+- Tambahkan environment variables folder tempat protoc-gen-openapiv2.exe berada : ***D:\Development\protoc\bin***
+- Cek dengan perintah ***protoc-gen-openapiv2 --version***
+- Buat konfigurasi eksternal grpc-gateway/config-openapi.yml
+- Buat folder proto/protoc-gen-openapiv2/options
+- Download protoc-gen-openapiv2/options/anntations.proto dan masukkan ke proto/protoc-gen-openapiv2/options/annotations.proto
+- Download protoc-gen-openapiv2/options/openapiv2.proto dan masukkan ke proto/protoc-gen-openapiv2/options/openapiv2.proto
+- buat folder ini ***protogen/gateway/openapiv2***
+- Hapus protogen/gateway/openapiv2 jika dilakukan compile ulang
 
 ## install Framework & Library
 
@@ -41,16 +64,6 @@
 - Viper (Configuration) : go get github.com/spf13/viper
 - Logrus (Logging) : go get github.com/sirupsen/logrus
 
-### Install Plugin Protocol Buffers Go
-```shell
-go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-```
-
-### Install Plugin Protocol Buffers Go GRPC
-
-```shell
-go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-```
 
 ### Run Generate Proto to Go GRPC
 
@@ -106,12 +119,6 @@ protoc -I . --openapiv2_out ./protogen/gateway/openapiv2 \
 protoc -I . --openapiv2_out ./protogen/gateway/openapiv2 --openapiv2_opt logtostderr=true --openapiv2_opt output_format=yaml --openapiv2_opt grpc_api_configuration=./grpc-gateway/config.yml --openapiv2_opt openapi_configuration=./grpc-gateway/config-openapi.yml --openapiv2_opt generate_unbound_methods=true --openapiv2_opt allow_merge=true --openapiv2_opt merge_file_name=merged ./proto/user/*.proto
 
 
-```
-
-### Install Golang Grpc
-
-```shell
-go get google.golang.org/grpc
 ```
 
 ### Install Dependency
