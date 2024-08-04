@@ -35,7 +35,6 @@
 - Rename ke protoc-gen-grpc-gateway.exe (windows)
 - Tambahkan environment variables folder tempat protoc-gen-grpc-gateway.exe berada : ***D:\Development\protoc\bin***
 - Cek dengan perintah ***protoc-gen-grpc-gateway --version***
-- Cek dengan protoc-gen-grpc-gateway --version
 - Buat folder proto/google/api
 - Download google/api/annotations.proto copy filenya dan masukkan ke proto/google/api/annotations.proto
 - Lakukan juga google/api/http.protocopy file dan masukkan ke proto/google/api/http.proto
