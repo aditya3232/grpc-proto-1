@@ -1,8 +1,8 @@
 ## Persiapan instalasi protolint & ekstensions vscode
 
 - download protolint : ***https://github.com/yoheimuta/protolint/releases/tag/v0.50.4***
-- setelah download letakkan di folder D, jangan di C
-- lalu ekstrak, kemudian daftarkan di environment variables -> system variables ***D:\Development\protolint***
+- setelah download letakkan di folder protolint di C
+- lalu ekstrak, kemudian daftarkan di environment variables -> system variables -> edit path -> new ***D:\Development\protolint***
 - cek dengan buka cmd lalu ketik ***protolint***
 - pasang juga protolint di ekstension vscode
 - pasang vscode-proto3
@@ -11,7 +11,7 @@
 
 - search google : download protocol buffers compiler
 - lalu klik link : ***https://github.com/protocolbuffers/protobuf/releases/tag/v27.2***
-- lalu ekstrak, kemudian daftarkan di environment variables -> system variables ***D:\Development\protoc\bin***
+- lalu ekstrak, kemudian daftarkan di environment variables -> system variables -> edit path -> new ***D:\Development\protoc\bin***
 - cek dengan buka cmd lalu ketik ***protoc***
 
 ## Persiapan download protoc-gen-go
@@ -33,7 +33,7 @@
 
 - Download protoc-gen--grpc-gateway dari repo berikut: https://github.com/grpc-ecosystem/grpc-gateway/releases/tag/v2.20.0
 - Rename ke protoc-gen-grpc-gateway.exe (windows)
-- Tambahkan environment variables folder tempat protoc-gen-grpc-gateway.exe berada : ***D:\Development\protoc\bin***
+- Tambahkan environment variables folder tempat protoc-gen-grpc-gateway.exe berada : environment variables -> system variables -> edit path -> new ***D:\Development\protoc\bin***
 - Cek dengan perintah ***protoc-gen-grpc-gateway --version***
 - Buat folder proto/google/api
 - Download google/api/annotations.proto copy filenya dan masukkan ke proto/google/api/annotations.proto
@@ -47,7 +47,7 @@
 
 - Download protoc-gen-openapiv2 dari repo berikut: https://github.com/grpc-ecosystem/grpc-gateway/releases/tag/v2.20.0
 - Rename ke protoc-gen-openapiv2.exe (windows)
-- Tambahkan environment variables folder tempat protoc-gen-openapiv2.exe berada : ***D:\Development\protoc\bin***
+- Tambahkan environment variables folder tempat protoc-gen-openapiv2.exe berada : environment variables -> system variables -> edit path -> new ***D:\Development\protoc\bin***
 - Cek dengan perintah ***protoc-gen-openapiv2 --version***
 - Buat konfigurasi eksternal grpc-gateway/config-openapi.yml
 - Buat folder proto/protoc-gen-openapiv2/options
